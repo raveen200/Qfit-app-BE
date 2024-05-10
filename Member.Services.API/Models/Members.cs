@@ -13,12 +13,9 @@ namespace MemberQfit.Services.API.Models
         public string LastName { get; set; }
         [Required]
         public string Email { get; set; }
-        [Required]
-        public string MobileNumber { get; set; }
-        [Required]
-        public string NIC { get; set; }
-        [Required]
-        public string Address { get; set; }
+        public string? MobileNumber { get; set; }
+        public string? NIC { get; set; }
+        public string? Address { get; set; }
         public DateOnly JoinDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
         public string? Job { get; set; }
         public string? City { get; set; }
