@@ -61,7 +61,7 @@ namespace MemberQfit.Services.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetById/{FirstName}")]
+        [Route("GetByName/{FirstName}")]
         public ResponseDTO GetById(string FirstName)
         {
             try
@@ -155,15 +155,6 @@ namespace MemberQfit.Services.API.Controllers
             return _response;
 
         }
-
-
-
-
-
-
-
-
-
 
 
     }
