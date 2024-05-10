@@ -86,6 +86,38 @@ namespace MemberQfit.Services.API.Controllers
 
         }
 
+
+        [HttpGet]
+        [Route("GetByNIC/{NIC}")]
+        public ResponseDTO GetByNIC(string NIC)
+        {
+            try
+            {
+                Members obj = _db.Members.First(u => u.NIC.ToLower() == NIC.ToLower());
+                if (obj == null)
+                {
+                    _response.IsSuccess = false;
+
+                }
+
+                _response.Result = _mapper.Map<MembersDTO>(obj);
+
+            }
+            catch (Exception ex)
+            {
+                _response.Message = ex.Message;
+                _response.IsSuccess = false;
+
+            }
+            return _response;
+
+        }
+
+
+
+
+
+
         [HttpPost]
         public ResponseDTO Post([FromBody] MembersDTO membersDTO)
         {

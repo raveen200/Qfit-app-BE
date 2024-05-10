@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MemberQfit.Services.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240510101852_updateFeilds")]
-    partial class updateFeilds
+    [Migration("20240510170542_addSeedData")]
+    partial class addSeedData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,7 @@ namespace MemberQfit.Services.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Age")
@@ -56,7 +57,7 @@ namespace MemberQfit.Services.API.Migrations
                     b.Property<int?>("Gender")
                         .HasColumnType("int");
 
-                    b.Property<double>("Height")
+                    b.Property<double?>("Height")
                         .HasColumnType("float");
 
                     b.Property<string>("Job")
@@ -70,12 +71,14 @@ namespace MemberQfit.Services.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MobileNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NIC")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Weight")
+                    b.Property<double?>("Weight")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
@@ -86,22 +89,24 @@ namespace MemberQfit.Services.API.Migrations
                         new
                         {
                             Id = 1,
+                            Address = "No 1, Colombo",
                             Email = "john@gmail.com",
                             FirstName = "John",
-                            Height = 0.0,
                             JoinDate = new DateOnly(2024, 5, 10),
                             LastName = "Doe",
-                            Weight = 0.0
+                            MobileNumber = "0786589235",
+                            NIC = "123456789V"
                         },
                         new
                         {
                             Id = 2,
+                            Address = "No 1, Negombo",
                             Email = "Luni@gmail.com",
                             FirstName = "Jane",
-                            Height = 0.0,
                             JoinDate = new DateOnly(2024, 5, 10),
                             LastName = "Deo",
-                            Weight = 0.0
+                            MobileNumber = "0786589235",
+                            NIC = "123456789V"
                         });
                 });
 #pragma warning restore 612, 618

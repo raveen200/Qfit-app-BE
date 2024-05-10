@@ -23,7 +23,12 @@ namespace MemberQfit.Services.API.Data
                                    FirstName = "John",
                                    LastName = "Doe",
                                    Email = "john@gmail.com",
-                                
+                                   MobileNumber = "0786589235",
+                                   NIC = "123456789V",
+                                   Address = "No 1, Colombo",
+
+
+
 
                                });
             modelBuilder.Entity<Members>().HasData(
@@ -33,7 +38,21 @@ namespace MemberQfit.Services.API.Data
                                  FirstName = "Jane",
                                  LastName = "Deo",
                                  Email = "Luni@gmail.com",
-                               
+                                 MobileNumber = "0786589235",
+                                 NIC = "123456789V",
+                                 Address = "No 1, Negombo",
+
+                             });
+            modelBuilder.Entity<Members>().HasData(
+                             new Members
+                             {
+                                 Id = 3,
+                                 FirstName = "Sunil",
+                                 LastName = "Gamage",
+                                 Email = "Luni@gmail.com",
+                                 MobileNumber = "0786589235",
+                                 NIC = "991202548V",
+                                 Address = "No 1, Dankotuwa",
 
                              });
         }
