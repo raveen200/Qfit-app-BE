@@ -5,8 +5,11 @@ namespace MemberQfit.Services.API.Models
 {
     public class Members
     {
+
         [Key]
         public int Id { get; set; }
+        [Required]
+        public string NIC { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -16,10 +19,11 @@ namespace MemberQfit.Services.API.Models
         [Required]
         public string MobileNumber { get; set; }
         [Required]
-        public string NIC { get; set; }
-        [Required]
         public string? Address { get; set; }
+        [Required]
         public DateOnly JoinDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+        [Required]
+        public StatusEnum Status { get; set; } = StatusEnum.Active;
         public string? Job { get; set; }
         public string? City { get; set; }
         public string? AboutMe { get; set; }

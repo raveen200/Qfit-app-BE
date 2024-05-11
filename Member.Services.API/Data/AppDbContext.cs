@@ -24,7 +24,7 @@ namespace MemberQfit.Services.API.Data
                                    LastName = "Doe",
                                    Email = "john@gmail.com",
                                    MobileNumber = "0786589235",
-                                   NIC = "123456789V",
+                                   NIC = "12789V",
                                    Address = "No 1, Colombo",
 
 
@@ -34,12 +34,13 @@ namespace MemberQfit.Services.API.Data
             modelBuilder.Entity<Members>().HasData(
                              new Members
                              {
+
                                  Id = 2,
                                  FirstName = "Jane",
                                  LastName = "Deo",
                                  Email = "Luni@gmail.com",
                                  MobileNumber = "0786589235",
-                                 NIC = "123456789V",
+                                 NIC = "125679V",
                                  Address = "No 1, Negombo",
 
                              });
@@ -55,6 +56,17 @@ namespace MemberQfit.Services.API.Data
                                  Address = "No 1, Dankotuwa",
 
                              });
+
+            modelBuilder.Entity<Members>()
+                .HasIndex(p => p.NIC)
+                .IsUnique();
+
+
+
+
+
+
+
         }
     }
 }

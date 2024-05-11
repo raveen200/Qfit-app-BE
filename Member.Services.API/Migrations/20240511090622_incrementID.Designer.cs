@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MemberQfit.Services.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240510170043_update")]
-    partial class update
+    [Migration("20240511090622_incrementID")]
+    partial class incrementID
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,14 +76,52 @@ namespace MemberQfit.Services.API.Migrations
 
                     b.Property<string>("NIC")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<double?>("Weight")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("NIC")
+                        .IsUnique();
+
                     b.ToTable("Members");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "No 1, Colombo",
+                            Email = "john@gmail.com",
+                            FirstName = "John",
+                            JoinDate = new DateOnly(2024, 5, 11),
+                            LastName = "Doe",
+                            MobileNumber = "0786589235",
+                            NIC = "12789V"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "No 1, Negombo",
+                            Email = "Luni@gmail.com",
+                            FirstName = "Jane",
+                            JoinDate = new DateOnly(2024, 5, 11),
+                            LastName = "Deo",
+                            MobileNumber = "0786589235",
+                            NIC = "125679V"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "No 1, Dankotuwa",
+                            Email = "Luni@gmail.com",
+                            FirstName = "Sunil",
+                            JoinDate = new DateOnly(2024, 5, 11),
+                            LastName = "Gamage",
+                            MobileNumber = "0786589235",
+                            NIC = "991202548V"
+                        });
                 });
 #pragma warning restore 612, 618
         }

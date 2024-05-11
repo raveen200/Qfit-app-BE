@@ -73,12 +73,15 @@ namespace MemberQfit.Services.API.Migrations
 
                     b.Property<string>("NIC")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<double?>("Weight")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("NIC")
+                        .IsUnique();
 
                     b.ToTable("Members");
 
@@ -89,10 +92,10 @@ namespace MemberQfit.Services.API.Migrations
                             Address = "No 1, Colombo",
                             Email = "john@gmail.com",
                             FirstName = "John",
-                            JoinDate = new DateOnly(2024, 5, 10),
+                            JoinDate = new DateOnly(2024, 5, 11),
                             LastName = "Doe",
                             MobileNumber = "0786589235",
-                            NIC = "123456789V"
+                            NIC = "12789V"
                         },
                         new
                         {
@@ -100,10 +103,10 @@ namespace MemberQfit.Services.API.Migrations
                             Address = "No 1, Negombo",
                             Email = "Luni@gmail.com",
                             FirstName = "Jane",
-                            JoinDate = new DateOnly(2024, 5, 10),
+                            JoinDate = new DateOnly(2024, 5, 11),
                             LastName = "Deo",
                             MobileNumber = "0786589235",
-                            NIC = "123456789V"
+                            NIC = "125679V"
                         },
                         new
                         {
@@ -111,7 +114,7 @@ namespace MemberQfit.Services.API.Migrations
                             Address = "No 1, Dankotuwa",
                             Email = "Luni@gmail.com",
                             FirstName = "Sunil",
-                            JoinDate = new DateOnly(2024, 5, 10),
+                            JoinDate = new DateOnly(2024, 5, 11),
                             LastName = "Gamage",
                             MobileNumber = "0786589235",
                             NIC = "991202548V"
