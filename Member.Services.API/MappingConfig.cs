@@ -12,8 +12,20 @@ namespace MemberQfit.Services.API
             {
                 config.CreateMap<MembersDTO, Members>();
                 config.CreateMap<Members, MembersDTO>();
+
+
+
+
+                config.CreateMap<MembersAllProptiesDTO, Members>();
+                config.CreateMap<Members, MembersAllProptiesDTO>();
             });
             return mappingConfig;
+
+
+
+
+
+
         }
 
     }

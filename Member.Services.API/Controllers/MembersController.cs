@@ -47,7 +47,7 @@ namespace MemberQfit.Services.API.Controllers
             try
             {
                 Members obj = _db.Members.First(u => u.Id == id);
-                _response.Result = _mapper.Map<MembersDTO>(obj);
+                _response.Result = _mapper.Map<MembersAllProptiesDTO>(obj);
 
             }
             catch (Exception ex)
@@ -142,16 +142,16 @@ namespace MemberQfit.Services.API.Controllers
         }
 
         [HttpPut]
-        public ResponseDTO Put([FromBody] MembersDTO membersDTO)
+        public ResponseDTO Put([FromBody] MembersAllProptiesDTO membersAllProptiesDTO)
         {
             try
             {
-                Members obj = _mapper.Map<Members>(membersDTO);
+                Members obj = _mapper.Map<Members>(membersAllProptiesDTO);
                 _db.Members.Update(obj);
                 _db.SaveChanges();
 
 
-                _response.Result = _mapper.Map<MembersDTO>(obj);
+                _response.Result = _mapper.Map<MembersAllProptiesDTO>(obj);
 
             }
             catch (Exception ex)

@@ -1,4 +1,6 @@
-﻿namespace MemberQfit.Services.API.Models.DTO
+﻿using MemberQfit.Services.API.Models.Enums;
+
+namespace MemberQfit.Services.API.Models.DTO
 {
     public class MembersDTO
     {
@@ -9,6 +11,7 @@
         public string? MobileNumber { get; set; }
         public string? NIC { get; set; }
         public string? Address { get; set; }
+        public StatusEnum Status { get; set; }
         public DateOnly? JoinDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
     }
 

@@ -75,6 +75,9 @@ namespace MemberQfit.Services.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<double?>("Weight")
                         .HasColumnType("float");
 
@@ -95,7 +98,8 @@ namespace MemberQfit.Services.API.Migrations
                             JoinDate = new DateOnly(2024, 5, 11),
                             LastName = "Doe",
                             MobileNumber = "0786589235",
-                            NIC = "12789V"
+                            NIC = "12789V",
+                            Status = 0
                         },
                         new
                         {
@@ -106,7 +110,8 @@ namespace MemberQfit.Services.API.Migrations
                             JoinDate = new DateOnly(2024, 5, 11),
                             LastName = "Deo",
                             MobileNumber = "0786589235",
-                            NIC = "125679V"
+                            NIC = "125679V",
+                            Status = 0
                         },
                         new
                         {
@@ -117,7 +122,8 @@ namespace MemberQfit.Services.API.Migrations
                             JoinDate = new DateOnly(2024, 5, 11),
                             LastName = "Gamage",
                             MobileNumber = "0786589235",
-                            NIC = "991202548V"
+                            NIC = "991202548V",
+                            Status = 0
                         });
                 });
 #pragma warning restore 612, 618
