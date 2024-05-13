@@ -1,0 +1,6 @@
+@Qfit.Service.AuthAPI_HostAddress = http://localhost:5191
+
+GET {{Qfit.Service.AuthAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
