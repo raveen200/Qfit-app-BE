@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Qfit.Service.AuthAPI.Models.DTO;
+using Qfit.Service.AuthAPI.Service.IService;
 
 namespace Qfit.Service.AuthAPI.Controllers
 {
@@ -7,10 +8,30 @@ namespace Qfit.Service.AuthAPI.Controllers
     [ApiController]
     public class AuthAPIController : ControllerBase
     {
-        [HttpPost("register")]
-        public async Task <IActionResult> Register()
+
+        private readonly IAuthService _authService;
+        protected ResponseDTO _response;
+        public AuthAPIController(IAuthService authService)
         {
-            return Ok();
+            _authService = authService;
+            _response = new();
+        }
+
+
+
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegistarationRequsetDTO model)
+        {
+            var errorMessages = await _authService.Register(model);
+            if (errorMessages == "")
+            {
+                _response.IsSuccess = false;
+                _response.Message = errorMessages;
+                return BadRequest(_response);
+            }
+            return Ok(_response);
+           
         }
 
         [HttpPost("login")]
