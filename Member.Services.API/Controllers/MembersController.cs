@@ -119,7 +119,7 @@ namespace MemberQfit.Services.API.Controllers
 
 
         [HttpPost]
-        public ResponseDTO Post([FromBody] MembersDTO membersDTO)
+        public IActionResult Post([FromBody] MembersDTO membersDTO)
         {
 
             var existingMember = _db.Members.FirstOrDefault(m => m.NIC == membersDTO.NIC);
@@ -127,6 +127,7 @@ namespace MemberQfit.Services.API.Controllers
             {
                 _response.Message = "A member with the same NIC already exists. New record has been skipped.";
                 _response.IsSuccess = false;
+                return BadRequest(_response);
             }
             else
             {
@@ -135,14 +136,15 @@ namespace MemberQfit.Services.API.Controllers
                 _db.SaveChanges();
                 _response.Result = _mapper.Map<MembersDTO>(obj);
                 _response.IsSuccess = true;
+                return Ok(_response);
             }
 
-            return _response;
+
 
         }
 
         [HttpPut]
-        public ResponseDTO Put([FromBody] MembersAllProptiesDTO membersAllProptiesDTO)
+        public IActionResult Put([FromBody] MembersAllProptiesDTO membersAllProptiesDTO)
         {
             try
             {
@@ -152,15 +154,17 @@ namespace MemberQfit.Services.API.Controllers
 
 
                 _response.Result = _mapper.Map<MembersAllProptiesDTO>(obj);
+                return Ok(_response);
 
             }
             catch (Exception ex)
             {
                 _response.Message = ex.Message;
                 _response.IsSuccess = false;
+                return BadRequest(_response);
 
             }
-            return _response;
+
 
         }
 

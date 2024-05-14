@@ -24,14 +24,14 @@ namespace Qfit.Service.AuthAPI.Controllers
         public async Task<IActionResult> Register([FromBody] RegistarationRequsetDTO model)
         {
             var errorMessages = await _authService.Register(model);
-            if (errorMessages == "")
+            if (!string.IsNullOrEmpty(errorMessages))
             {
                 _response.IsSuccess = false;
                 _response.Message = errorMessages;
                 return BadRequest(_response);
             }
             return Ok(_response);
-           
+
         }
 
         [HttpPost("login")]
