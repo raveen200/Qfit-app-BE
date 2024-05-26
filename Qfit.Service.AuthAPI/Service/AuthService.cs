@@ -12,19 +12,65 @@ namespace Qfit.Service.AuthAPI.Service
         private readonly AppDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IJwtTokenGenerator _jwtTokenGenerator;
 
 
-        public AuthService(AppDbContext db, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public AuthService(AppDbContext db, IJwtTokenGenerator jwtTokenGenerator,
+            UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _db = db;
+            _jwtTokenGenerator = jwtTokenGenerator;
             _userManager = userManager;
             _roleManager = roleManager;
+
         }
 
-
-        public Task<LoginResponseDTO> login(LoginReqeustDTO loginReqeustDTO)
+        public async Task<bool> AssignRole(string email, string roleName)
         {
-            throw new NotImplementedException();
+            var user = _db.ApplicationUsers.FirstOrDefault(u => u.Email.ToLower() == email.ToLower());
+            if (user != null)
+            {
+                if (!_roleManager.RoleExistsAsync(roleName).GetAwaiter().GetResult())
+                {
+                    _roleManager.CreateAsync(new IdentityRole(roleName)).GetAwaiter().GetResult();
+                }
+                await _userManager.AddToRoleAsync(user, roleName);
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<LoginResponseDTO> login(LoginReqeustDTO loginReqeustDTO)
+        {
+
+            var user = _db.ApplicationUsers.FirstOrDefault(u => u.UserName.ToLower() == loginReqeustDTO.UserName.ToLower());
+
+            bool isValid = await _userManager.CheckPasswordAsync(user, loginReqeustDTO.Password);
+
+            if (user == null || isValid == false)
+            {
+                return new LoginResponseDTO() { Member = null, Token = "" };
+            }
+            var roles = await _userManager.GetRolesAsync(user);
+            var token = _jwtTokenGenerator.GenerateToken(user,roles);
+
+            MemberDTO memberDTO = new()
+            {
+                Email = user.Email,
+                Id = user.Id,
+                Name = user.Name,
+                PhoneNumber = user.PhoneNumber
+
+            };
+            LoginResponseDTO loginResponseDTO = new LoginResponseDTO()
+            {
+                Member = memberDTO,
+                Token = token   
+            };
+
+            return loginResponseDTO;
+
+
         }
 
         public async Task<string> Register(RegistarationRequsetDTO registarationRequsetDTO)
@@ -60,7 +106,7 @@ namespace Qfit.Service.AuthAPI.Service
                 }
                 else
                 {
-                   return result.Errors.FirstOrDefault().Description;
+                    return result.Errors.FirstOrDefault().Description;
                 }
             }
             catch (Exception ex)

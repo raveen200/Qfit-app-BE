@@ -35,9 +35,34 @@ namespace Qfit.Service.AuthAPI.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login()
+        public async Task<IActionResult> Login([FromBody] LoginReqeustDTO model)
         {
-            return Ok();
+            var loginResponse = await _authService.login(model);
+            if (loginResponse.Member == null)
+            {
+                _response.IsSuccess = false;
+                _response.Message = "UserName or password is incorrect";
+                return BadRequest(_response);
+            }
+            _response.Result = loginResponse;
+            return Ok(_response);
+
+        }
+
+
+        [HttpPost("AssignRole")]
+        public async Task<IActionResult> AssignRole([FromBody] RegistarationRequsetDTO model)
+        {
+            var assignRoleSuccessful = await _authService.AssignRole(model.Email, model.Role.ToUpper());
+            if (!assignRoleSuccessful)
+            {
+                _response.IsSuccess = false;
+                _response.Message = "Error Encountered";
+                return BadRequest(_response);
+            }
+
+            return Ok(_response);
+
         }
     }
 }
