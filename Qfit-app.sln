@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{22
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemberQfit.Services.API", "Member.Services.API\MemberQfit.Services.API.csproj", "{9E0C89CB-F32D-4C14-BA6B-B693BD8EEA19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qfit.Service.AuthAPI", "Qfit.Service.AuthAPI\Qfit.Service.AuthAPI.csproj", "{BD542C08-7AE8-434D-B7AC-5EED58551ADC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qfit.Service.AuthAPI", "Qfit.Service.AuthAPI\Qfit.Service.AuthAPI.csproj", "{BD542C08-7AE8-434D-B7AC-5EED58551ADC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipQfit.Service.API", "Membership.Service.API\MembershipQfit.Service.API.csproj", "{AB4D3DA0-C5D4-4ACD-A966-11C33D646F13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{BD542C08-7AE8-434D-B7AC-5EED58551ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD542C08-7AE8-434D-B7AC-5EED58551ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD542C08-7AE8-434D-B7AC-5EED58551ADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB4D3DA0-C5D4-4ACD-A966-11C33D646F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB4D3DA0-C5D4-4ACD-A966-11C33D646F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB4D3DA0-C5D4-4ACD-A966-11C33D646F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB4D3DA0-C5D4-4ACD-A966-11C33D646F13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9E0C89CB-F32D-4C14-BA6B-B693BD8EEA19} = {221C44EF-DF25-4377-9163-AE8B94166A0B}
 		{BD542C08-7AE8-434D-B7AC-5EED58551ADC} = {221C44EF-DF25-4377-9163-AE8B94166A0B}
+		{AB4D3DA0-C5D4-4ACD-A966-11C33D646F13} = {221C44EF-DF25-4377-9163-AE8B94166A0B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D573477-686A-4BAB-B86B-00FC2F77A9F9}

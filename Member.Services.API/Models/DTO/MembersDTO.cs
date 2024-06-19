@@ -13,6 +13,7 @@ namespace MemberQfit.Services.API.Models.DTO
         public string? Address { get; set; }
         public StatusEnum Status { get; set; }
         public DateOnly? JoinDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+        public string? DisplayPicture { get; set; }
     }
 
 }

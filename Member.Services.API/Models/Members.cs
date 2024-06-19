@@ -24,6 +24,7 @@ namespace MemberQfit.Services.API.Models
         public DateOnly JoinDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
         [Required]
         public StatusEnum Status { get; set; } = StatusEnum.Active;
+        public string? DisplayPicture { get; set; }
         public string? Job { get; set; }
         public string? City { get; set; }
         public string? AboutMe { get; set; }
