@@ -11,10 +11,21 @@ var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 // Add services to the container.
 
+
+
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureServices((hostContext, services) =>
+        {
+            services.AddHostedService<DailyMembershipUpdater>();
+            services.AddScoped<AppDbContext>();
+        });
 
 
 
@@ -91,6 +102,23 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+ApplyMigrations();
+
+void ApplyMigrations()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var _db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        if (_db.Database.GetPendingMigrations().Count() > 0)
+        {
+            _db.Database.Migrate();
+        }
+    }
+
+}
+
+
 
 
 

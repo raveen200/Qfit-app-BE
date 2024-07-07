@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MembershipQfit.Service.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240707171520_dbsw")]
-    partial class dbsw
+    [Migration("20240707172416_s2")]
+    partial class s2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,6 +42,9 @@ namespace MembershipQfit.Service.API.Migrations
                     b.Property<string>("NIC")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RemainingDays")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");

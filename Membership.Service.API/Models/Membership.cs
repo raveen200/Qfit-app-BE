@@ -16,5 +16,7 @@ namespace MembershipQfit.Service.API.Models
 
         public DateTime EndDate { get; set; }
 
+        public int RemainingDays { get; set; }
+
     }
 }
