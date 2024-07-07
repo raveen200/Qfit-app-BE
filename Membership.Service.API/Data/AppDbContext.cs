@@ -13,6 +13,7 @@ namespace MembershipQfit.Service.API.Data
 
         public DbSet<Membership> Memberships { get; set; }
 
+    
 
 
     }
