@@ -3,17 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{1FBFB2DE-7A8A-41A8-AC53-82134A71C47D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Intergration", "Intergration", "{D6475BE6-477D-4BC1-86CF-2DA8A1C897E6}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{221C44EF-DF25-4377-9163-AE8B94166A0B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemberQfit.Services.API", "Member.Services.API\MemberQfit.Services.API.csproj", "{9E0C89CB-F32D-4C14-BA6B-B693BD8EEA19}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qfit.Service.AuthAPI", "Qfit.Service.AuthAPI\Qfit.Service.AuthAPI.csproj", "{BD542C08-7AE8-434D-B7AC-5EED58551ADC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipQfit.Service.API", "Membership.Service.API\MembershipQfit.Service.API.csproj", "{AB4D3DA0-C5D4-4ACD-A966-11C33D646F13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MembershipQfit.Service.API", "Membership.Service.API\MembershipQfit.Service.API.csproj", "{AB4D3DA0-C5D4-4ACD-A966-11C33D646F13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,11 +30,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{9E0C89CB-F32D-4C14-BA6B-B693BD8EEA19} = {221C44EF-DF25-4377-9163-AE8B94166A0B}
-		{BD542C08-7AE8-434D-B7AC-5EED58551ADC} = {221C44EF-DF25-4377-9163-AE8B94166A0B}
-		{AB4D3DA0-C5D4-4ACD-A966-11C33D646F13} = {221C44EF-DF25-4377-9163-AE8B94166A0B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D573477-686A-4BAB-B86B-00FC2F77A9F9}
