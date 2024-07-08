@@ -90,44 +90,6 @@ namespace MemberQfit.Services.API.Migrations
                         .IsUnique();
 
                     b.ToTable("Members");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "No 1, Colombo",
-                            Email = "john@gmail.com",
-                            FirstName = "John",
-                            JoinDate = new DateOnly(2024, 5, 29),
-                            LastName = "Doe",
-                            MobileNumber = "0786589235",
-                            NIC = "12789V",
-                            Status = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "No 1, Negombo",
-                            Email = "Luni@gmail.com",
-                            FirstName = "Jane",
-                            JoinDate = new DateOnly(2024, 5, 29),
-                            LastName = "Deo",
-                            MobileNumber = "0786589235",
-                            NIC = "125679V",
-                            Status = 0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Address = "No 1, Dankotuwa",
-                            Email = "Luni@gmail.com",
-                            FirstName = "Sunil",
-                            JoinDate = new DateOnly(2024, 5, 29),
-                            LastName = "Gamage",
-                            MobileNumber = "0786589235",
-                            NIC = "991202548V",
-                            Status = 0
-                        });
                 });
 #pragma warning restore 612, 618
         }

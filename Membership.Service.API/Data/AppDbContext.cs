@@ -18,18 +18,39 @@ namespace MembershipQfit.Service.API.Data
         {
             base.OnModelCreating(modelBuilder);
 
+           /* modelBuilder.Entity<Membership>().HasData(
+                                  new Membership
+                                  {
+                                      MembershipId = 1,
+                                      NIC = "12789V",
+                                      MembershipType = MembershipType.Monthly,
+                                      StartDate = new System.DateTime(2021, 1, 1),
+                                      EndDate = new System.DateTime(2021, 1, 31),
+                                      RemainingDays = 30
+
+
+                                  });
+
             modelBuilder.Entity<Membership>().HasData(
-                               new Membership
-                               {
-                                   MembershipId = 1,
-                                   NIC = "12789V",
-                                   MembershipType = MembershipType.Monthly,
-                                   StartDate = new System.DateTime(2021, 1, 1),
-                                   EndDate = new System.DateTime(2021, 1, 31),
-                                   RemainingDays = 31
-
-
-                               });
+                new Membership
+                {
+                    MembershipId = 2,
+                    NIC = "125679V",
+                    MembershipType = MembershipType.Monthly,
+                    StartDate = new System.DateTime(2021, 1, 1),
+                    EndDate = new System.DateTime(2021, 12, 31),
+                    RemainingDays = 30
+                });
+            modelBuilder.Entity<Membership>().HasData(
+                new Membership
+                {
+                    MembershipId = 3,
+                    NIC = "991202548V",
+                    MembershipType = MembershipType.Monthly,
+                    StartDate = new System.DateTime(2021, 1, 1),
+                    EndDate = new System.DateTime(2021, 12, 31),
+                    RemainingDays = 30
+                }); */
 
 
 

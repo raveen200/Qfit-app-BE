@@ -7,14 +7,14 @@ namespace MembershipQfit.Service.API.Models
     {
         [Key]
         public int MembershipId { get; set; }
-  
+
         public string NIC { get; set; }
 
         public MembershipType MembershipType { get; set; }
-  
-        public DateTime StartDate { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public DateOnly StartDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+
+        public DateOnly EndDate { get; set; }
 
         public int RemainingDays { get; set; }
 

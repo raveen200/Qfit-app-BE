@@ -49,17 +49,6 @@ namespace MembershipQfit.Service.API.Migrations
                     b.HasKey("MembershipId");
 
                     b.ToTable("Memberships");
-
-                    b.HasData(
-                        new
-                        {
-                            MembershipId = 1,
-                            EndDate = new DateTime(2021, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MembershipType = 1,
-                            NIC = "12789V",
-                            RemainingDays = 31,
-                            StartDate = new DateTime(2021, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 #pragma warning restore 612, 618
         }

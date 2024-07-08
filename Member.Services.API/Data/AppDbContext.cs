@@ -16,7 +16,7 @@ namespace MemberQfit.Services.API.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Members>().HasData(
+            /*modelBuilder.Entity<Members>().HasData(
                                new Members
                                {
                                    Id = 1,
@@ -30,7 +30,7 @@ namespace MemberQfit.Services.API.Data
 
 
 
-                               });
+                               }); 
             modelBuilder.Entity<Members>().HasData(
                              new Members
                              {
@@ -55,7 +55,7 @@ namespace MemberQfit.Services.API.Data
                                  NIC = "991202548V",
                                  Address = "No 1, Dankotuwa",
 
-                             });
+                             }); */
 
             modelBuilder.Entity<Members>()
                 .HasIndex(p => p.NIC)
