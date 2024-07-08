@@ -30,8 +30,8 @@ namespace MembershipQfit.Service.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MembershipId"));
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("EndDate")
+                        .HasColumnType("date");
 
                     b.Property<int>("MembershipType")
                         .HasColumnType("int");
@@ -43,8 +43,8 @@ namespace MembershipQfit.Service.API.Migrations
                     b.Property<int>("RemainingDays")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("StartDate")
+                        .HasColumnType("date");
 
                     b.HasKey("MembershipId");
 

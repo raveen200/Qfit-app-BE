@@ -90,11 +90,11 @@ namespace MembershipQfit.Service.API.Controllers
         }
 
         [HttpDelete]
-        [Route("{id:int}")]
-        public IActionResult Delete(Membership obj)
+        public IActionResult Delete(int id)
         {
             try
             {
+                var obj = _db.Memberships.First(u => u.MembershipId == id);
                 _db.Memberships.Remove(obj);
                 _db.SaveChanges();
                 return Ok("Deleted Successfully");

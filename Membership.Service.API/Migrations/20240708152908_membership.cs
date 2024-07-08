@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MembershipQfit.Service.API.Migrations
 {
     /// <inheritdoc />
-    public partial class v2 : Migration
+    public partial class membership : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,8 +19,8 @@ namespace MembershipQfit.Service.API.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NIC = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MembershipType = table.Column<int>(type: "int", nullable: false),
-                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StartDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    EndDate = table.Column<DateOnly>(type: "date", nullable: false),
                     RemainingDays = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

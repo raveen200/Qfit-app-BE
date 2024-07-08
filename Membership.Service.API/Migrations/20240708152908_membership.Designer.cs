@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MembershipQfit.Service.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240708102247_v2")]
-    partial class v2
+    [Migration("20240708152908_membership")]
+    partial class membership
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,8 +33,8 @@ namespace MembershipQfit.Service.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MembershipId"));
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("EndDate")
+                        .HasColumnType("date");
 
                     b.Property<int>("MembershipType")
                         .HasColumnType("int");
@@ -46,8 +46,8 @@ namespace MembershipQfit.Service.API.Migrations
                     b.Property<int>("RemainingDays")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("StartDate")
+                        .HasColumnType("date");
 
                     b.HasKey("MembershipId");
 
