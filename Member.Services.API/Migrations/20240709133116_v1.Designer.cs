@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MemberQfit.Services.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240709111921_v2")]
-    partial class v2
+    [Migration("20240709133116_v1")]
+    partial class v1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
