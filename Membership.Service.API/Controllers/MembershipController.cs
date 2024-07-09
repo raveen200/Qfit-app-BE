@@ -50,6 +50,27 @@ namespace MembershipQfit.Service.API.Controllers
 
         }
 
+        [HttpGet]
+        [Route("GetByNIC/{nic}")]
+        public IActionResult GetByNIC(string nic)
+        {
+            try
+            {
+                var obj = _db.Memberships.First(u => u.NIC == nic);
+                return Ok(obj);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+
+        }
+
+
+
+
+
         [HttpPut]
         public IActionResult Put(Membership obj)
         {

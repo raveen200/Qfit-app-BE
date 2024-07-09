@@ -8,7 +8,10 @@ namespace MembershipQfit.Service.API.Models
         [Key]
         public int MembershipId { get; set; }
 
-        public string NIC { get; set; }
+        public string? NIC { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? Email { get; set; }
 
         public MembershipType MembershipType { get; set; }
 
