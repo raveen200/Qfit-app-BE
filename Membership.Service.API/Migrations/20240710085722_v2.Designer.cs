@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MembershipQfit.Service.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240709133140_v2")]
+    [Migration("20240710085722_v2")]
     partial class v2
     {
         /// <inheritdoc />
